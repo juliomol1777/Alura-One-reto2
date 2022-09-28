@@ -1,0 +1,528 @@
+/* Encriptador - Desktop */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.container-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 2px solid #0250c9;
+    border-radius: 1rem;
+}
+/*
+.container-right {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 40%;
+    border: 2px solid #0250c9;
+    border-radius: 1rem;
+}
+*/
+/* Mobile */
+@media screen and (max-width: 450px) {
+  
+}
+
+/* Tablet*/
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    /*
+    .container-left {
+        flex: 0 1 65%;
+        width: 100%;
+    }
+    
+    .container-right {
+        flex: 0 1 35%;
+        width: 100%;
+    }
+    */
+    .figura{
+        display: none;
+    }
+    .frame5-text{
+        display: none;
+    }
+    .frame5-input{
+        display: block;
+    }
+}
+
+
+.container-superior{
+    flex: 0 1 15%;
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 120px;
+    height: 48px;
+}
+/* Frame 1 */
+.container-medio {
+    flex: 0 1 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-juego{
+    display: flex;
+    width: 100%;
+}
+/* Solo letras minúsculas y sin acentos */
+
+.frame1-text {
+    width: 40%;
+    display: none;
+    margin-left: 100px;
+    border: 2px solid black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+}
+
+.areaBorde:hover{
+    border: 2px solid #0250c9;
+}
+
+/* Frame 3 */
+
+.container-inferior {
+    display: none;
+    flex: 0 1 20%;
+    /*display: flex;*/
+    flex-direction: column;
+}
+
+.frame3-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.frame3-logo p{
+    margin-top: 1rem;
+}
+/* Vector */
+
+.frame3-group {
+    margin-top: 1rem;
+}
+
+.frame3-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame3-boton {
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 20px;
+    padding: 24px;
+    margin: 0.7rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Button */
+.--primario{
+    color: #0250c9;
+    background: #fff;
+    border-color: #0250c9;
+
+}
+.--primario:hover {
+    background: #0250c9;
+    color: #fff;
+  }
+  
+.especial{
+    background: #ffff24;
+    color: #000;
+    border-color: #000;
+}
+.especial:hover{
+    background: #000;
+    color: #fff;
+}
+
+.frame2-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Textarea para el ahorcado*/
+
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    /*
+    gap: 24px;
+    width: 464px;
+    height: 152px;
+    left: 488px;
+    position: absolute;
+    top: 626px;
+    */
+    }
+    
+    .word{
+    width: 464px;
+    height: 92px;
+    display: flex;
+    flex-direction: row;
+    order: 0;
+    flex-grow: 0;
+    }
+    
+    .letter{
+    /*position: absolute;
+    
+    left: 384px;
+    top: 0px;*/
+    width: 80px;
+    height: 92px;
+    margin: 10px;
+    }
+    
+    
+    .a{
+    /*position: absolute;
+    left: 384px;
+    top: 0px;
+    */
+    width: 80px;
+    height: 72px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 150%;
+    /* identical to box height, or 72px */
+    
+    text-align: center;
+    
+    color: #000000;
+    opacity: 0;
+    
+    }
+
+    .rectangle6{
+    position: absolute;
+    /*
+    left: 384px;
+    top: 88px;
+    */
+    width: 80px;
+    height: 4px;
+    background: #0A3871;
+    border-radius: 8px;
+    }
+    
+       
+    .otherLetter{
+    
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    gap: 24px;
+    /*
+    width: 136px;
+    height: 36px;*/
+    /*
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    */
+    }
+    
+    .b{
+    width: 16px;
+    height: 36px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    
+    text-align: center;
+    
+    color: #7D95A1;
+    
+    /*opacity: 0;*/
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    }
+
+    #txtArea{
+        display: none;
+    }
+
+    /*muñeco*/
+
+    /* Group 5 */
+    
+    .group5{
+    width: 60%;
+    height: 100%;
+    display: none;
+    margin-left: 200px;
+    position: absolute;
+    left: 573px;
+    top: 148px;
+    /*
+    width: 400px;
+    height: 500px;*/
+    }
+    
+    /* Ellipse 9 (Stroke) */
+    
+    .ellipse9{
+    position: absolute;
+    width: 63px;
+    height: 63px;
+    left: 150px;
+    top: 49.5px;
+    opacity: 0;
+    background: #0A3871;
+    }
+    
+    /* Rectangle 22 */
+    
+    .rectangle22{
+    position: absolute;
+    width: 4.5px;
+    height: 72px;
+    left: 157.75px;
+    top: 150px;
+    opacity: 0;
+    background: #0A3871;
+    border-radius: 8px;
+    transform: rotate(30deg);
+    }
+    
+    /* Rectangle 21 */
+    
+    .rectangle21{
+    position: absolute;
+    width: 4.5px;
+    height: 72px;
+    left: 197.75px;
+    top: 150px;
+    background: #0A3871;
+    border-radius: 8px;
+    transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
+    opacity: 0;
+    }
+    
+    /* Rectangle 20 */
+    
+    .rectangle20{
+    position: absolute;
+    width: 4.5px;
+    height: 72px;
+    left: 197.75px;
+    top: 242px;
+    opacity: 0;
+    background: #0A3871;
+    border-radius: 8px;
+    transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
+    }
+    
+    
+    .rectangle19{
+    position: absolute;
+    width: 4.5px;
+    height: 72px;
+    left: 157.75px;
+    top: 242px;
+    
+    background: #0A3871;
+    border-radius: 8px;
+    transform: rotate(30deg);
+    opacity: 0;
+    }
+    
+    /* Rectangle 18 */
+    
+    .rectangle18{
+    position: absolute;
+    width: 4.5px;
+    height: 135px;
+    
+    left: 177.75px;
+    top: 113px;
+    opacity: 0;
+    background: #0A3871;
+    }
+    
+    /* Rectangle 17 */
+    
+    .rectangle17{
+    position: absolute;
+    width: 4.5px;
+    height: 49.5px;
+    
+    left: 177.75px;
+    /*
+    top: 148px;*/
+    
+    background: #0A3871;
+    border-radius: 8px;
+    }
+    
+    
+    .rectangle15{
+    position: absolute;
+    width: 4.5px;
+    height: 360px;
+    /*
+    left: 653.67px;
+    top: 148px;*/
+    
+    background: #0A3871;
+    border-radius: 8px;
+    
+    }
+    /* Rectangle 16 */
+    
+    .rectangle16{
+    position: absolute;
+    width: 177.75px;
+    height: 4.5px;
+    /*
+    left: 653.67px;
+    top: 148px;*/
+    
+    background: #0A3871;
+    border-radius: 8px;
+    }
+    
+    /* Rectangle 14 */
+    
+    .rectangle14{
+    position: absolute;
+    width: 294px;
+    height: 5px;
+    /*
+    left: 573px;*/
+    top: 360px;
+    
+    background: #0A3871;
+    border-radius: 8px;
+    }
+
+/*
+#place_order
+{
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229);
+    pointer-events:none;
+}
+*/
+
+
+
+
+
+/* Frame 5 
+
+.frame5 {
+    flex: 0 1 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+Ningún mensaje fue encontrado 
+
+.frame5-text {
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    height: 2rem;
+    text-align: center;
+    color: #343A40;
+}
+
+/Ingresa el texto que desees encriptar o desencriptar. 
+
+
+.frame5-input {
+    display: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #495057;
+}
+
+.borderF5{
+    border: 2px solid #0250c9;
+}
+
+.frame5-container{
+    flex: 0 1 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+Muñeco 
+
+.figura {
+   
+}
+*/
+
+
+
+

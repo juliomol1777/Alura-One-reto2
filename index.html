@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Encriptador</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-left">
+            <div class="container-superior" id="container-superior">
+                <div class="logo">
+                    <img src="./Vector.png" alt="">
+                </div>
+            </div>
+            <div class="container-medio">
+                <div class="frame2-container" id="frame2-container">
+                    <button class="frame3-boton --primario" type="button" id="boton3">Iniciar juego</button>
+
+                    <button class="frame3-boton especial" type="button" id="boton4">Agregar palabra</button>
+                </div>
+                <div class="container-juego">
+                    <div class="group5" id="group5">
+                        <div class="ellipse9" id="ellipse9">
+
+                        </div>
+                        <div class="rectangle22" id="rectangle22">
+
+                        </div>
+                        <div class="rectangle21" id="rectangle21">
+
+                        </div>
+                        <div class="rectangle20" id="rectangle20">
+
+                        </div>
+                        <div class="rectangle19" id="rectangle19">
+
+                        </div>
+                        <div class="rectangle18" id="rectangle18">
+
+                        </div>
+                        <div class="rectangle17" id="rectangle17">
+
+                        </div>
+                        <div class="rectangle16">
+
+                        </div>
+                        <div class="rectangle15">
+
+                        </div>
+                        <div class="rectangle14">
+
+                        </div>
+                    </div>
+
+                    <div class="frame1-text" id="frame1-text">
+
+                        <div class="keyboard">
+                            <div class="word" id="word">
+                                <!--
+                            <div class="letter">
+                                <div class="a">
+
+                                </div>
+                                <div class="rectangle6">
+
+                                </div>
+                            </div>
+                            -->
+                            </div>
+                        </div>
+                        <div class="otherLetter" id="otherLetter">
+                            <!--
+                            <div class="b">
+                                <p>A</p>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div id="txtArea">
+                        <textarea class="areaBorde" cols="35" rows="12" id="input">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="container-inferior" id="container-inferior">
+                <div class="frame3-logo">
+                    <div class="frame3-group">
+                        <img src="./Vector (1).png" alt="">
+                    </div>
+                    <p>Ingrese texto en minuscula sin caracteres</p>
+                </div>
+                <div class="frame3-container" id="btn-jugar">
+                    <button class="frame3-boton --primario" type="button" id="boton1">Nuevo juego</button>
+
+                    <button class="frame3-boton especial" type="button" id="boton2">Desistir</button>
+                </div>
+                <div class="frame3-container" id="btn-Agregar">
+                    <button class="frame3-boton --primario" type="button" id="boton5">Guardar y empezar</button>
+
+                    <button class="frame3-boton especial" type="button" id="boton6">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var palabras = ["casa", "perro", "escuela"];
+            var intentosErroneos = 6;
+            var letraElegida;
+            var elements = document.getElementsByClassName("a");
+            var palabra ="";
+            var palabraAgregada = "";
+
+
+            document.getElementById('boton3').onclick = function funcionInicio() {
+                //document.getElementById('container-superior').style.display = "none";
+                document.getElementById('container-inferior').style.display = "flex";
+                document.getElementById('group5').style.display = "flex";
+                document.getElementById('frame1-text').style.display = "flex";
+                document.getElementById('frame1-text').style.flexDirection = "column";
+                document.getElementById('otherLetter').style.display = "flex";
+                document.getElementById('frame2-container').style.display = "none";
+                document.getElementById('btn-Agregar').style.display = "none";
+            };
+
+            document.getElementById('boton4').onclick = function funcionAgregar() {
+                document.getElementById('container-inferior').style.display = "flex";
+                document.getElementById('frame2-container').style.display = "none";
+                document.getElementById('btn-Agregar').style.display = "flex";
+                document.getElementById('txtArea').style.display = "flex";
+                document.getElementById('btn-jugar').style.display = "none";
+            };
+            
+
+            document.getElementById('boton5').onclick = function agregarPalabra() {
+                document.getElementById('txtArea').value = palabraAgregada;
+            }
+
+            document.getElementById('boton6').onclick = function funcionVolver(){
+                document.getElementById('btn-Agregar').style.display = "none";
+                document.getElementById('txtArea').style.display = "none";
+                document.getElementById('frame2-container').style.display = "flex";
+                document.getElementById('container-inferior').style.display = "none";
+            };
+
+            document.getElementById('boton1').onclick = function agregarFila() {
+
+                if(palabraAgregada !== ""){
+                    palabra = palabraAgregada;
+                }
+                else{
+                    palabra = palabras[0];
+                }         
+
+                for (let index = 0; index < palabra.length; index++) {
+
+                    var node = document.createElement('div');
+                    node.className = "letter";
+                    var node2 = document.createElement('div');
+                    node2.className = "a";
+                    var node3 = document.createElement('p');
+
+                    var node4 = document.createElement('div');
+                    node4.className = "rectangle6";
+                    document.getElementById('word').appendChild(node);
+                    node.appendChild(node2);
+                    node2.appendChild(node3);
+                    node.appendChild(node4);
+                    node3.innerText = palabra[index];
+
+
+                    /* otra manera de hacer lo de arriba
+                    document.getElementById("word").innerHTML += `
+                    <div class="letter"><div class="a"><p>${palabra[index]}</p></div>
+                    <div class="rectangle6"></div></div>`;
+                    */
+                }
+                //letras erroneas 
+                var palabraErr;
+                for (let index = 0; index < intentosErroneos; index++) {
+                    var node5 = document.createElement('div');
+                    node5.className = "b";
+                    palabraErr = document.createElement('p');
+                    palabraErr.className = "errada";
+                    document.getElementById('otherLetter').appendChild(node5);
+                    node5.appendChild(palabraErr); 
+                    
+                }
+
+                var intentosTotales = intentosErroneos + palabra.length;
+                var intentos = 0;
+
+                    //document.onkeydown = function(event) {
+                //for (let i = 0; i < intentosTotales; i++) {
+                    var contar = 0;
+                    document.addEventListener("keydown", e => {
+                        if(intentos<intentosTotales){
+                            letraElegida = e.key
+                            console.log("Código tecla: " + letraElegida);
+                            var palabraAcertada = false;
+                            
+                            for (let index = 0; index < palabra.length; index++) {
+                                if (palabra[index] == letraElegida) {
+                                    console.log("si")
+                                    document.getElementsByClassName("a")[index].style.opacity = 1;
+                                    palabraAcertada = true;
+                                }
+                            }
+                            if (palabraAcertada == false) {
+                                console.log("errada");
+                                document.getElementsByClassName("errada")[contar].innerHTML += letraElegida;
+                                //palabraErr.innerText = "A"; 
+                                if(contar !== 0){
+                                    switch (contar) {
+                                        case 1:
+                                            document.getElementById('rectangle18').style.opacity = 1;
+                                            break;
+                                        case 2:
+                                            document.getElementById('rectangle19').style.opacity = 1;
+                                            break;
+                                        case 3:
+                                            document.getElementById('rectangle20').style.opacity = 1;
+                                            break;
+                                        case 4:
+                                            document.getElementById('rectangle21').style.opacity = 1;
+                                            break;
+                                        case 5:
+                                            document.getElementById('rectangle22').style.opacity = 1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    
+                                }
+                                else{
+                                    console.log("muñeco")
+                                    document.getElementById("ellipse9").style.opacity = 1;
+                                }
+                                contar++;
+                                                 
+                            } 
+                            intentos++;
+                        }
+                      
+                    });
+                                    
+            };
+    </script>
+
+</body>
+
+</html>
