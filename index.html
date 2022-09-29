@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Encriptador</title>
+    <title>Juego Ahorcado</title>
 </head>
 
 <body>
@@ -19,7 +19,8 @@
             </div>
             <div class="container-medio">
                 <div class="frame2-container" id="frame2-container">
-                    <button class="frame3-boton --primario" type="button" id="boton3">Iniciar juego</button>
+                    <button class="frame3-boton --primario" type="button" onclick="funcionInicio()" id="boton3">Iniciar
+                        juego</button>
 
                     <button class="frame3-boton especial" type="button" id="boton4">Agregar palabra</button>
                 </div>
@@ -111,11 +112,12 @@
             var intentosErroneos = 6;
             var letraElegida;
             var elements = document.getElementsByClassName("a");
-            var palabra ="";
+            var palabra = "";
             var palabraAgregada = "";
 
 
-            document.getElementById('boton3').onclick = function funcionInicio() {
+            //document.getElementById('boton3').onclick = 
+            function funcionInicio() {
                 //document.getElementById('container-superior').style.display = "none";
                 document.getElementById('container-inferior').style.display = "flex";
                 document.getElementById('group5').style.display = "flex";
@@ -133,28 +135,48 @@
                 document.getElementById('txtArea').style.display = "flex";
                 document.getElementById('btn-jugar').style.display = "none";
             };
-            
+
 
             document.getElementById('boton5').onclick = function agregarPalabra() {
-                document.getElementById('txtArea').value = palabraAgregada;
-            }
+                palabraAgregada = document.getElementById('input').value.trim();
+                console.log(palabraAgregada)
+                funcionInicio();
+                document.getElementById('txtArea').style.display = "none";
+                document.getElementById('btn-jugar').style.display = "flex";
+            };
+            /*
+            document.getElementById('boton2').onclick = function desistir() {
+                document.getElementById('container-inferior').style.display = "none";
+                document.getElementById('group5').style.display = "none";
+                document.getElementById('frame1-text').style.display = "none";
+                document.getElementById('otherLetter').style.display = "none";
+                document.getElementById('frame2-container').style.display = "flex";
+                document.getElementById('btn-Agregar').style.display = "none";
+                document.getElementById('input').value = "";
+            };*/
 
-            document.getElementById('boton6').onclick = function funcionVolver(){
+            document.getElementById('boton6').onclick = function funcionVolver() {
+                location.reload();
+                /*
                 document.getElementById('btn-Agregar').style.display = "none";
                 document.getElementById('txtArea').style.display = "none";
                 document.getElementById('frame2-container').style.display = "flex";
                 document.getElementById('container-inferior').style.display = "none";
                 document.getElementById('btn-jugar').style.display = "flex";
+                document.getElementById('input').value = "";
+                */
             };
+            
+            var contar = 0;
 
             document.getElementById('boton1').onclick = function agregarFila() {
-
-                if(palabraAgregada !== ""){
+                
+                if (palabraAgregada !== "") {
                     palabra = palabraAgregada;
                 }
-                else{
+                else {
                     palabra = palabras[0];
-                }         
+                }
 
                 for (let index = 0; index < palabra.length; index++) {
 
@@ -163,9 +185,10 @@
                     var node2 = document.createElement('div');
                     node2.className = "a";
                     var node3 = document.createElement('p');
-
+                    node3.className ="p"
                     var node4 = document.createElement('div');
                     node4.className = "rectangle6";
+                    node4.style.visibility = "flex"
                     document.getElementById('word').appendChild(node);
                     node.appendChild(node2);
                     node2.appendChild(node3);
@@ -187,69 +210,94 @@
                     palabraErr = document.createElement('p');
                     palabraErr.className = "errada";
                     document.getElementById('otherLetter').appendChild(node5);
-                    node5.appendChild(palabraErr); 
-                    
+                    node5.appendChild(palabraErr);
+
                 }
 
                 var intentosTotales = intentosErroneos + palabra.length;
                 var intentos = 0;
 
-                    //document.onkeydown = function(event) {
+                //document.onkeydown = function(event) {
                 //for (let i = 0; i < intentosTotales; i++) {
-                    var contar = 0;
-                    document.addEventListener("keydown", e => {
-                        if(intentos<intentosTotales){
-                            letraElegida = e.key
-                            console.log("Código tecla: " + letraElegida);
-                            var palabraAcertada = false;
-                            
-                            for (let index = 0; index < palabra.length; index++) {
-                                if (palabra[index] == letraElegida) {
-                                    console.log("si")
-                                    document.getElementsByClassName("a")[index].style.opacity = 1;
-                                    palabraAcertada = true;
-                                }
+                //var contar = 0;
+                document.getElementById('boton1').setAttribute('disabled', "false");
+                document.addEventListener("keydown", e => {
+                    if (intentos < intentosTotales) {
+                        letraElegida = e.key
+                        console.log("Código tecla: " + letraElegida);
+                        var palabraAcertada = false;
+
+                        for (let index = 0; index < palabra.length; index++) {
+                            if (palabra[index] == letraElegida) {
+                                console.log("si")
+                                document.getElementsByClassName("a")[index].style.opacity = 1;
+                                palabraAcertada = true;
                             }
-                            if (palabraAcertada == false) {
-                                console.log("errada");
-                                document.getElementsByClassName("errada")[contar].innerHTML += letraElegida;
-                                //palabraErr.innerText = "A"; 
-                                if(contar !== 0){
-                                    switch (contar) {
-                                        case 1:
-                                            document.getElementById('rectangle18').style.opacity = 1;
-                                            break;
-                                        case 2:
-                                            document.getElementById('rectangle19').style.opacity = 1;
-                                            break;
-                                        case 3:
-                                            document.getElementById('rectangle20').style.opacity = 1;
-                                            break;
-                                        case 4:
-                                            document.getElementById('rectangle21').style.opacity = 1;
-                                            break;
-                                        case 5:
-                                            document.getElementById('rectangle22').style.opacity = 1;
-                                            break;
-                                        default:
-                                            break;
-                                    }
-                                    
-                                }
-                                else{
-                                    console.log("muñeco")
-                                    document.getElementById("ellipse9").style.opacity = 1;
-                                }
-                                contar++;
-                                                 
-                            } 
-                            intentos++;
                         }
-                      
-                    });
-                                    
+                        if (palabraAcertada == false) {
+                            console.log("errada");
+                            document.getElementsByClassName("errada")[contar].innerHTML += letraElegida;
+                            //palabraErr.innerText = "A"; 
+                            if (contar !== 0) {
+                                switch (contar) {
+                                    case 1:
+                                        document.getElementById('rectangle18').style.opacity = 1;
+                                        break;
+                                    case 2:
+                                        document.getElementById('rectangle19').style.opacity = 1;
+                                        break;
+                                    case 3:
+                                        document.getElementById('rectangle20').style.opacity = 1;
+                                        break;
+                                    case 4:
+                                        document.getElementById('rectangle21').style.opacity = 1;
+                                        break;
+                                    case 5:
+                                        document.getElementById('rectangle22').style.opacity = 1;
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+                            else {
+                                console.log("muñeco")
+                                document.getElementById("ellipse9").style.opacity = 1;
+                            }
+                            contar++;
+
+                        }
+                        intentos++;
+                    }
+
+            });
+            //document.getElementById('boton1').setAttribute('disabled', "true");
             };
-    </script>
+            document.getElementById('boton2').onclick = function desistir(e) {
+                location.reload();
+                /*
+                e.preventDefault();
+                document.getElementById('container-inferior').style.display = "none";
+                document.getElementById('group5').style.display = "none";
+                document.getElementById('frame1-text').style.display = "none";
+                document.getElementById('otherLetter').style.display = "none";
+                document.getElementById('frame2-container').style.display = "flex";
+                document.getElementById('btn-Agregar').style.display = "none";
+                document.getElementById('input').value = "";
+                
+                for (let index = 0; index < palabra.length; index++) {
+                    document.getElementsByClassName("p")[index].innerText = "";
+                    document.getElementsByClassName('rectangle6')[index].style.display = "none";
+                }
+                for (let i = 0; i <= contar; i++) {
+                    document.getElementsByClassName("errada")[i].innerText = "";
+                    
+                }
+               */ 
+                
+            };    
+
+        </script>
 
 </body>
 

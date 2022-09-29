@@ -102,6 +102,11 @@
     opacity: 0.8;
 }
 
+.areaBorde{
+    text-align: left;
+}
+
+
 .areaBorde:hover{
     border: 2px solid #0250c9;
 }
