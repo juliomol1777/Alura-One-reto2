@@ -68,21 +68,24 @@
 /* Frame 1 */
 .container-medio {
     flex: 0 1 65%;
+    /*width: 100%;*/
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;
+    align-items: center;*/
 }
+
 
 .container-juego{
     display: flex;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
 }
 /* Solo letras minúsculas y sin acentos */
 
 .frame1-text {
-    width: 40%;
     display: none;
-    margin-left: 100px;
+    margin-left: 50px;
     border: 2px solid black;
     font-family: 'Inter';
     font-style: normal;
@@ -184,6 +187,7 @@
 
 .frame2-container{
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -254,7 +258,7 @@
     left: 384px;
     top: 88px;
     */
-    width: 80px;
+    width: 60px;
     height: 4px;
     background: #0A3871;
     border-radius: 8px;
@@ -302,6 +306,9 @@
 
     #txtArea{
         display: none;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
 
     /*muñeco*/
@@ -309,8 +316,8 @@
     /* Group 5 */
     
     .group5{
-    width: 60%;
-    height: 100%;
+    width: 50%;
+    /*height: 100%;*/
     display: none;
     margin-left: 200px;
     position: absolute;
