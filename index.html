@@ -26,6 +26,12 @@
                 </div>
                 <div class="container-juego">
                     <div class="group5" id="group5">
+                        <div class="msgAcierto" id="msgAcierto">
+                            <p>Ganaste, Felicidades!</p>                        
+                        </div>
+                        <div class="msgFallo" id="msgFallo">
+                            <p>Fin del juego</p>                        
+                        </div>    
                         <div class="ellipse9" id="ellipse9">
 
                         </div>
@@ -128,7 +134,7 @@
                 document.getElementById('btn-Agregar').style.display = "none";
             };
 
-            document.getElementById('boton4').onclick = function funcionAgregar() {
+            document.getElementById('boton4').onclick = function inicioJuego() {
                 document.getElementById('container-inferior').style.display = "flex";
                 document.getElementById('frame2-container').style.display = "none";
                 document.getElementById('btn-Agregar').style.display = "flex";
@@ -144,27 +150,9 @@
                 document.getElementById('txtArea').style.display = "none";
                 document.getElementById('btn-jugar').style.display = "flex";
             };
-            /*
-            document.getElementById('boton2').onclick = function desistir() {
-                document.getElementById('container-inferior').style.display = "none";
-                document.getElementById('group5').style.display = "none";
-                document.getElementById('frame1-text').style.display = "none";
-                document.getElementById('otherLetter').style.display = "none";
-                document.getElementById('frame2-container').style.display = "flex";
-                document.getElementById('btn-Agregar').style.display = "none";
-                document.getElementById('input').value = "";
-            };*/
-
-            document.getElementById('boton6').onclick = function funcionVolver() {
+            
+            document.getElementById('boton6').onclick = function funcionCancelar() {
                 location.reload();
-                /*
-                document.getElementById('btn-Agregar').style.display = "none";
-                document.getElementById('txtArea').style.display = "none";
-                document.getElementById('frame2-container').style.display = "flex";
-                document.getElementById('container-inferior').style.display = "none";
-                document.getElementById('btn-jugar').style.display = "flex";
-                document.getElementById('input').value = "";
-                */
             };
             
             var contar = 0;
@@ -216,12 +204,13 @@
 
                 var intentosTotales = intentosErroneos + palabra.length;
                 var intentos = 0;
-
+                var palabrasAcertadas = 0;
                 //document.onkeydown = function(event) {
                 //for (let i = 0; i < intentosTotales; i++) {
                 //var contar = 0;
                 document.getElementById('boton1').setAttribute('disabled', "false");
                 document.addEventListener("keydown", e => {
+                    
                     if (intentos < intentosTotales) {
                         letraElegida = e.key
                         console.log("Código tecla: " + letraElegida);
@@ -232,7 +221,12 @@
                                 console.log("si")
                                 document.getElementsByClassName("a")[index].style.opacity = 1;
                                 palabraAcertada = true;
+                                palabrasAcertadas++
                             }
+                        }
+                        if (palabrasAcertadas == palabra.length) {
+                            document.getElementById("msgAcierto").style.opacity = 1;
+                            
                         }
                         if (palabraAcertada == false) {
                             console.log("errada");
@@ -254,6 +248,10 @@
                                         break;
                                     case 5:
                                         document.getElementById('rectangle22').style.opacity = 1;
+                                        document.getElementById("msgFallo").style.opacity = 1;
+                                        setTimeout(function(){
+                                                location.reload();
+                                            }, 2000);
                                         break;
                                     default:
                                         break;
@@ -271,30 +269,13 @@
                     }
 
             });
-            //document.getElementById('boton1').setAttribute('disabled', "true");
+
             };
-            document.getElementById('boton2').onclick = function desistir(e) {
-                location.reload();
-                /*
-                e.preventDefault();
-                document.getElementById('container-inferior').style.display = "none";
-                document.getElementById('group5').style.display = "none";
-                document.getElementById('frame1-text').style.display = "none";
-                document.getElementById('otherLetter').style.display = "none";
-                document.getElementById('frame2-container').style.display = "flex";
-                document.getElementById('btn-Agregar').style.display = "none";
-                document.getElementById('input').value = "";
-                
-                for (let index = 0; index < palabra.length; index++) {
-                    document.getElementsByClassName("p")[index].innerText = "";
-                    document.getElementsByClassName('rectangle6')[index].style.display = "none";
-                }
-                for (let i = 0; i <= contar; i++) {
-                    document.getElementsByClassName("errada")[i].innerText = "";
-                    
-                }
-               */ 
-                
+            document.getElementById('boton2').onclick = function desistir() {
+                document.getElementById("msgFallo").style.opacity = 1;
+                setTimeout(function(){
+                    location.reload();
+                    }, 2000);
             };    
 
         </script>

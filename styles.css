@@ -19,16 +19,7 @@
     border: 2px solid #0250c9;
     border-radius: 1rem;
 }
-/*
-.container-right {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 40%;
-    border: 2px solid #0250c9;
-    border-radius: 1rem;
-}
-*/
+
 /* Mobile */
 @media screen and (max-width: 450px) {
   
@@ -39,17 +30,17 @@
     .container {
         flex-direction: column;
     }
-    /*
-    .container-left {
-        flex: 0 1 65%;
-        width: 100%;
+
+    .group5{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .frame1-text{
+        display: flex;
+        flex-direction: column;
     }
     
-    .container-right {
-        flex: 0 1 35%;
-        width: 100%;
-    }
-    */
     .figura{
         display: none;
     }
@@ -111,6 +102,13 @@
     border: 2px solid #0250c9;
 }
 
+#msgAcierto{
+    opacity: 0;
+}
+
+#msgFallo{
+    opacity: 0;
+}
 /* Frame 3 */
 
 .container-inferior {
@@ -459,75 +457,4 @@
     background: #0A3871;
     border-radius: 8px;
     }
-
-/*
-#place_order
-{
-    cursor: not-allowed;
-    background-color: rgb(229, 229, 229);
-    pointer-events:none;
-}
-*/
-
-
-
-
-
-/* Frame 5 
-
-.frame5 {
-    flex: 0 1 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-Ningún mensaje fue encontrado 
-
-.frame5-text {
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 120%;
-    height: 2rem;
-    text-align: center;
-    color: #343A40;
-}
-
-/Ingresa el texto que desees encriptar o desencriptar. 
-
-
-.frame5-input {
-    display: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    text-align: center;
-    color: #495057;
-}
-
-.borderF5{
-    border: 2px solid #0250c9;
-}
-
-.frame5-container{
-    flex: 0 1 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-Muñeco 
-
-.figura {
-   
-}
-*/
-
-
-
 
