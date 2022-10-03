@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="container-inferior" id="container-inferior">
-                <div class="frame3-logo">
+                <div class="frame3-logo" id="frame3-logo">
                     <div class="frame3-group">
                         <img src="./Vector (1).png" alt="">
                     </div>
@@ -129,9 +129,11 @@
             function funcionInicio() {
                 //document.getElementById('container-superior').style.display = "none";
                 document.getElementById('frame2-container').style.display = "none";
-                document.getElementById('container-juego').style.display = "flex";
+                document.getElementById('container-juego').style.display = "inline-flex";
                 document.getElementById('container-inferior').style.display = "flex";
+                document.getElementById('frame3-logo').style.display = "none";
                 document.getElementById('btn-Agregar').style.display = "none";
+                
                 
                 /*
                 document.getElementById('group5').style.display = "flex";
