@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 62.5%;
 }
 
 .container {
@@ -70,22 +71,42 @@
     flex: 0 1 65%;
     /*width: 100%;*/
     display: flex;
-    /*justify-content: center;
+    /*
+    justify-content: center;
     align-items: center;*/
 }
 
 
 .container-juego{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    /*justify-content: center;
+    align-content: center;*/
     
+}
+
+.msg{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 150%;
+    color: #f75c51;
 }
 /* Solo letras minúsculas y sin acentos */
 
 .frame1-text {
-    display: none;
-    margin-left: 50px;
+    width: 60%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rem;
+    margin-left: 2rem;
     border: 2px solid black;
     font-family: 'Inter';
     font-style: normal;
@@ -198,7 +219,6 @@
 .keyboard{
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 0px;
     /*
     gap: 24px;
@@ -211,10 +231,11 @@
     }
     
     .word{
-    width: 464px;
-    height: 92px;
+    height: 80px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     order: 0;
     flex-grow: 0;
     }
@@ -225,8 +246,7 @@
     left: 384px;
     top: 0px;*/
     width: 80px;
-    height: 92px;
-    margin: 10px;
+    height: 70px;
     }
     
     
@@ -236,7 +256,7 @@
     top: 0px;
     */
     width: 80px;
-    height: 72px;
+    height: 70px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -267,7 +287,7 @@
        
     .otherLetter{
     
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -290,7 +310,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 40px;
     line-height: 150%;
     
     text-align: center;
@@ -316,26 +336,25 @@
     /* Group 5 */
     
     .group5{
-    width: 50%;
-    /*height: 100%;*/
-    display: none;
-    margin-left: 200px;
-    position: absolute;
-    left: 573px;
-    top: 148px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    margin-left: 7rem;
+    position: relative;
+    /*left: 573px;
+    top: 148px;*/
     /*
     width: 400px;
     height: 500px;*/
     }
     
-    /* Ellipse 9 (Stroke) */
-    
+    /* Ellipse 9 (Stroke) */    
     .ellipse9{
     position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 150px;
-    top: 49.5px;
+    width: 3.94rem;
+    height: 3.94rem;
+    left: 9.34rem;
+    top: 3.1rem;
     opacity: 0;
     background: #0A3871;
     }
@@ -344,26 +363,26 @@
     
     .rectangle22{
     position: absolute;
-    width: 4.5px;
-    height: 72px;
-    left: 157.75px;
-    top: 150px;
+    width: 0.28rem;
+    height: 4.5rem;
+    left: 9.86rem;
+    top: 9.34rem;
     opacity: 0;
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     transform: rotate(30deg);
     }
-    
+
     /* Rectangle 21 */
     
     .rectangle21{
     position: absolute;
-    width: 4.5px;
-    height: 72px;
-    left: 197.75px;
-    top: 150px;
+    width: 0.28rem;
+    height: 4.5rem;
+    left: 12.36rem;
+    top: 9.34rem;
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
     opacity: 0;
     }
@@ -372,26 +391,26 @@
     
     .rectangle20{
     position: absolute;
-    width: 4.5px;
-    height: 72px;
-    left: 197.75px;
-    top: 242px;
+    width: 0.28rem;
+    height: 4.5rem;
+    left: 12.36rem;
+    top: 15.12rem;
     opacity: 0;
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
     }
     
     
     .rectangle19{
     position: absolute;
-    width: 4.5px;
-    height: 72px;
-    left: 157.75px;
-    top: 242px;
+    width: 0.28rem;
+    height: 4.5rem;
+    left: 9.86rem;
+    top: 15.12rem;
     
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     transform: rotate(30deg);
     opacity: 0;
     }
@@ -400,11 +419,11 @@
     
     .rectangle18{
     position: absolute;
-    width: 4.5px;
-    height: 135px;
+    width: 0.28rem;
+    height: 8.44rem;
     
-    left: 177.75px;
-    top: 113px;
+    left: 11.2rem;
+    top: 7.06rem;
     opacity: 0;
     background: #0A3871;
     }
@@ -413,55 +432,55 @@
     
     .rectangle17{
     position: absolute;
-    width: 4.5px;
-    height: 49.5px;
+    width: 0.28rem;
+    height: 3.1rem;
     
-    left: 177.75px;
+    left: 11.2rem;
     /*
     top: 148px;*/
     
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     }
     
     
     .rectangle15{
     position: absolute;
-    width: 4.5px;
-    height: 360px;
+    width: 0.28rem;
+    height: 22.5rem;
     /*
     left: 653.67px;
     top: 148px;*/
     
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     
     }
     /* Rectangle 16 */
     
     .rectangle16{
     position: absolute;
-    width: 177.75px;
-    height: 4.5px;
+    width: 11.2rem;
+    height: 0.28rem;
     /*
     left: 653.67px;
     top: 148px;*/
     
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     }
     
     /* Rectangle 14 */
     
     .rectangle14{
     position: absolute;
-    width: 294px;
-    height: 5px;
+    width: 18.37rem;
+    height: 0.313rem;
     /*
     left: 573px;*/
-    top: 360px;
+    top: 22.5rem;
     
     background: #0A3871;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     }
 

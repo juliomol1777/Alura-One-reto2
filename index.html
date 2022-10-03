@@ -24,14 +24,33 @@
 
                     <button class="frame3-boton especial" type="button" id="boton4">Agregar palabra</button>
                 </div>
-                <div class="container-juego">
-                    <div class="group5" id="group5">
-                        <div class="msgAcierto" id="msgAcierto">
-                            <p>Ganaste, Felicidades!</p>                        
+                <div class="container-juego" id="container-juego">
+                    
+                    <div class="frame1-text" id="frame1-text">
+
+                        <div class="keyboard">
+                            <div class="word" id="word">
+                                <!--
+                            <div class="letter">
+                                <div class="a">
+
+                                </div>
+                                <div class="rectangle6">
+
+                                </div>
+                            </div>
+                            -->
+                            </div>
                         </div>
-                        <div class="msgFallo" id="msgFallo">
-                            <p>Fin del juego</p>                        
-                        </div>    
+                        <div class="otherLetter" id="otherLetter">
+                            <!--
+                            <div class="b">
+                                <p>A</p>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="group5" id="group5">   
                         <div class="ellipse9" id="ellipse9">
 
                         </div>
@@ -64,28 +83,12 @@
                         </div>
                     </div>
 
-                    <div class="frame1-text" id="frame1-text">
-
-                        <div class="keyboard">
-                            <div class="word" id="word">
-                                <!--
-                            <div class="letter">
-                                <div class="a">
-
-                                </div>
-                                <div class="rectangle6">
-
-                                </div>
-                            </div>
-                            -->
-                            </div>
+                    <div class="msg" id="msg">
+                        <div class="msgAcierto" id="msgAcierto">
+                            <p>Ganaste, Felicidades!</p>                        
                         </div>
-                        <div class="otherLetter" id="otherLetter">
-                            <!--
-                            <div class="b">
-                                <p>A</p>
-                            </div>
-                            -->
+                        <div class="msgFallo" id="msgFallo">
+                            <p>Fin del juego</p>                        
                         </div>
                     </div>
                 </div>
@@ -125,16 +128,20 @@
             //document.getElementById('boton3').onclick = 
             function funcionInicio() {
                 //document.getElementById('container-superior').style.display = "none";
+                document.getElementById('frame2-container').style.display = "none";
+                document.getElementById('container-juego').style.display = "flex";
                 document.getElementById('container-inferior').style.display = "flex";
+                document.getElementById('btn-Agregar').style.display = "none";
+                
+                /*
                 document.getElementById('group5').style.display = "flex";
                 document.getElementById('frame1-text').style.display = "flex";
                 document.getElementById('frame1-text').style.flexDirection = "column";
-                document.getElementById('otherLetter').style.display = "flex";
-                document.getElementById('frame2-container').style.display = "none";
-                document.getElementById('btn-Agregar').style.display = "none";
+                document.getElementById('otherLetter').style.display = "flex";*/
+                
             };
 
-            document.getElementById('boton4').onclick = function inicioJuego() {
+            document.getElementById('boton4').onclick = function agregarPalabra() {
                 document.getElementById('container-inferior').style.display = "flex";
                 document.getElementById('frame2-container').style.display = "none";
                 document.getElementById('btn-Agregar').style.display = "flex";
@@ -143,7 +150,7 @@
             };
 
 
-            document.getElementById('boton5').onclick = function agregarPalabra() {
+            document.getElementById('boton5').onclick = function guardarPalabra() {
                 palabraAgregada = document.getElementById('input').value.trim();
                 console.log(palabraAgregada)
                 funcionInicio();
@@ -226,6 +233,9 @@
                         }
                         if (palabrasAcertadas == palabra.length) {
                             document.getElementById("msgAcierto").style.opacity = 1;
+                            setTimeout(function(){
+                                location.reload();
+                            }, 2000);
                             
                         }
                         if (palabraAcertada == false) {
